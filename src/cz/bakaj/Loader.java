@@ -2,6 +2,7 @@ package cz.bakaj;
 
 import cz.bakaj.model.Item;
 import cz.bakaj.model.Knapsack;
+import cz.bakaj.model.Result;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -36,6 +37,21 @@ public class Loader {
             List<Knapsack> result = new ArrayList<>();
             stream.forEach(line -> {
                 result.add(parseLine(line));
+            });
+            return result;
+        } catch (IOException e) {
+            System.out.println("Cannot load input file with name: " + filename);
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<Result> loadResults(String filename) {
+        try (Stream<String> stream = Files.lines(Paths.get(filename))) {
+            List<Result> result = new ArrayList<>();
+            stream.forEach(line -> {
+                String[] tmp = line.split(SEPARATOR);
+                result.add(new Result(Integer.parseInt(tmp[0]), Integer.parseInt(tmp[2])));
             });
             return result;
         } catch (IOException e) {
