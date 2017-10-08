@@ -24,7 +24,13 @@ public class HeuristicSolver implements Solver {
             while (t>=0) {
                 if(capacity - temp.get(t).getWeight() >= 0) {
                     capacity -= temp.get(t).getWeight();
-                    cur += temp.get(t--).getCost();
+                    cur += temp.get(t).getCost();
+                    if(t == 0) {
+                        if(cur>max) {
+                            max = cur;
+                        }
+                    }
+                    t--;
                 } else {
                     if(cur>max) {
                         max = cur;
