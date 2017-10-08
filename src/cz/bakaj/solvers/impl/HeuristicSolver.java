@@ -22,21 +22,14 @@ public class HeuristicSolver implements Solver {
             int cur = 0;
             int capacity = knapsack.getCapacity();
             while (t>=0) {
-                if(capacity - temp.get(t).getWeight() >= 0) {
+                if (capacity - temp.get(t).getWeight() >= 0) {
                     capacity -= temp.get(t).getWeight();
                     cur += temp.get(t).getCost();
-                    if(t == 0) {
-                        if(cur>max) {
-                            max = cur;
-                        }
-                    }
-                    t--;
-                } else {
-                    if(cur>max) {
-                        max = cur;
-                    }
-                    break;
                 }
+                t--;
+            }
+            if (cur > max) {
+                max = cur;
             }
         }
         knapsack.setResult(max);
