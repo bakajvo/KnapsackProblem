@@ -8,7 +8,7 @@ import cz.bakaj.utils.Measure;
 
 import java.util.List;
 
-public class Main {
+public class NaiveTest {
 
     public static void main(String[] args) {
 
