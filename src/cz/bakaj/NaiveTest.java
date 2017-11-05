@@ -12,7 +12,7 @@ public class NaiveTest {
 
     public static void main(String[] args) {
 
-        String[] instances = {"4", "10", "15", "20", "22", "25", "27", "30", "32", "35", "37", "40"};
+        String[] instances = {"4", "10", "15", "20", "22"};
 
         for (String instance : instances) {
             List<Knapsack> knapsacks = Loader.loadProblems("data/in/knap_"+instance+".inst.dat");

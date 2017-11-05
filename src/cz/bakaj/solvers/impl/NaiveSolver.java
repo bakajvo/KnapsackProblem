@@ -12,18 +12,18 @@ import java.util.List;
 public class NaiveSolver implements Solver {
 
     private int _solve(int weight, int n, List<Item> items) {
-        if(n == 0 || weight == 0) {
+        if(n == 0) {
             return 0;
         }
-        if(items.get(n-1).getWeight() > weight) {
-            return _solve(weight, n-1, items);
-        } else {
-            Item tmp = items.get(n-1);
-            return Math.max(
-                    tmp.getCost() + _solve(weight - tmp.getWeight(), n-1, items),
-                    _solve(weight, n-1, items)
-            );
-        }
+        Item tmp = items.get(n-1);
+        int cost = 0;
+        if(weight - tmp.getWeight() >= 0)
+            cost = tmp.getCost();
+        return Math.max(
+                cost + _solve(weight - tmp.getWeight(), n-1, items),
+                _solve(weight, n-1, items)
+        );
+
     }
 
     @Override
