@@ -11,17 +11,17 @@ import java.util.List;
  */
 public class NaiveSolver implements Solver {
 
-    private int _solve(int weight, int n, List<Item> items) {
+    private int _solve(int remainingCapacity, int n, List<Item> items) {
         if(n == 0) {
             return 0;
         }
         Item tmp = items.get(n-1);
         int cost = 0;
-        if(weight - tmp.getWeight() >= 0)
+        if(remainingCapacity - tmp.getWeight() >= 0)
             cost = tmp.getCost();
         return Math.max(
-                cost + _solve(weight - tmp.getWeight(), n-1, items),
-                _solve(weight, n-1, items)
+                cost + _solve(remainingCapacity - tmp.getWeight(), n-1, items),
+                _solve(remainingCapacity, n-1, items)
         );
 
     }
