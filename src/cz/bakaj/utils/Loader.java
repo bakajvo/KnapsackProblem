@@ -1,4 +1,4 @@
-package cz.bakaj;
+package cz.bakaj.utils;
 
 import cz.bakaj.model.Item;
 import cz.bakaj.model.Knapsack;

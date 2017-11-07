@@ -4,6 +4,7 @@ import cz.bakaj.model.Knapsack;
 import cz.bakaj.model.Result;
 import cz.bakaj.solvers.Solver;
 import cz.bakaj.solvers.impl.DynamicSolver;
+import cz.bakaj.utils.Loader;
 import cz.bakaj.utils.Measure;
 
 import java.util.List;
