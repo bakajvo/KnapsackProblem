@@ -13,18 +13,10 @@ public class DynamicSolver implements Solver {
 
     private static final int INF = Integer.MAX_VALUE;
 
-    private int itemsCostSum(List<Item> items) {
-        int sum = 0;
-        for (Item item: items) {
-            sum += item.getCost();
-        }
-        return sum;
-    }
-
     @Override
     public Knapsack solve(Knapsack knapsack) {
         List<Item> items = knapsack.getItems();
-        int sum = itemsCostSum(items);
+        int sum = items.stream().mapToInt(Item::getCost).sum();
         int table[][] = new int[items.size()][sum+1];
 
         for (int i = 0; i<items.size(); i++) {
