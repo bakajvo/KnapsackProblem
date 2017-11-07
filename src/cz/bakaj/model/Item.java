@@ -16,6 +16,10 @@ public class Item {
         return cost;
     }
 
+    public void setCost(int cost) {
+        this.cost = cost;
+    }
+
     public int getWeight() {
         return weight;
     }
