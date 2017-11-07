@@ -3,13 +3,15 @@ package cz.bakaj;
 import cz.bakaj.model.Knapsack;
 import cz.bakaj.model.Result;
 import cz.bakaj.solvers.Solver;
-import cz.bakaj.solvers.impl.NaiveSolver;
+import cz.bakaj.solvers.impl.DynamicSolver;
 import cz.bakaj.utils.Measure;
 
 import java.util.List;
 
-public class NaiveTest {
-
+/**
+ * Created by Vojtěch Bakaj.
+ */
+public class DynamicTest {
     public static void main(String[] args) {
 
         String[] instances = {"4", "10", "15", "20", "22", "25", "27", "30", "32", "35", "37", "40"};
@@ -17,7 +19,7 @@ public class NaiveTest {
         for (String instance : instances) {
             List<Knapsack> knapsacks = Loader.loadProblems("data/in/knap_"+instance+".inst.dat");
             if(knapsacks != null) {
-                Solver solver = new NaiveSolver();
+                Solver solver = new DynamicSolver();
                 Measure.start();
                 knapsacks.forEach(solver::solve);
                 System.out.println("CPU Time for instance "+instance+" is " + Measure.stop() + "s.");
