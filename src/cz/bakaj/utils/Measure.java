@@ -28,4 +28,8 @@ public class Measure {
         return bean.isCurrentThreadCpuTimeSupported() ?
                 bean.getCurrentThreadCpuTime() : 0L;
     }
+
+    public static double relativeError(int opt, int apx) {
+        return Math.abs(opt - apx)/(double)opt;
+    }
 }
