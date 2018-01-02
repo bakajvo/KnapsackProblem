@@ -13,9 +13,9 @@ import java.util.Random;
  */
 public class GenericSolver implements Solver {
 
-    private static final int POPULATION = 100;
-    private static final int GENERATION = 10000;
-    private static final int TOURNAMENT = 5;
+    private static final int POPULATION = 500;
+    private static final int GENERATION = 5000;
+    private static final int TOURNAMENT = 10;
     private static final double MUTATION = 0.01;
 
     private Random random = new Random();
